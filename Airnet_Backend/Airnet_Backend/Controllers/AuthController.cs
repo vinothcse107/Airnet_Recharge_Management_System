@@ -23,14 +23,36 @@ namespace Airnet_Backend.Controllers
                   {
                         if (user.UserRole.Equals("admin"))
                         {
-                              return Ok(new { StatusCode = 200, Message = "Admin Authenticated", Allowed = true, UserRole = "admin", User = user.Username, Email = user.Email });
+                              return Ok(new
+                              {
+                                    StatusCode = 200,
+                                    Message = "Admin Authenticated",
+                                    Allowed = true,
+                                    UserRole = "admin",
+                                    User = user.Username,
+                                    Email = user.Email
+                              });
                         }
                         else if (user.UserRole.Equals("user"))
                         {
-                              return Ok(new { StatusCode = 200, Message = "User Authenticated", Allowed = true, UserRole = "user", User = user.Username, Email = user.Email });
+                              return Ok(new
+                              {
+                                    StatusCode = 200,
+                                    Message = "User Authenticated",
+                                    Allowed = true,
+                                    UserRole = "user",
+                                    User = user.Username,
+                                    Email = user.Email
+                              });
+
                         }
                   }
-                  return BadRequest(new { StatusCode = 400, Message = "User Not Available", Allowed = false });
+                  return BadRequest(new
+                  {
+                        StatusCode = 400,
+                        Message = "User Not Available",
+                        Allowed = false
+                  });
             }
 
 
