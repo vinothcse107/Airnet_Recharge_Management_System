@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PostpaidService } from 'src/app/services/postpaid.service';
 import { PlanModel } from '../../../shared/PlanModel';
 
@@ -17,19 +17,19 @@ export class EditPostpaidComponent implements OnInit {
   PlanValue !: PlanModel;
 
   // Reactive Form Controls Initialization
-  EditPostPaidForm!: FormGroup;
+  EditPostPaidForm!: UntypedFormGroup;
   ngOnInit(): void {
 
     // Get the Value From the Service
     this.PlanValue = this._postPaidService.EditId;
 
     // Initilize value on Start
-    this.EditPostPaidForm = new FormGroup({
-      _PlanName: new FormControl(this.PlanValue.planName, [Validators.required]),
-      _PlanPrice: new FormControl(this.PlanValue.planPrice, [Validators.required , Validators.pattern("[0-9]{1,5}")]),
-      _PlanValidity: new FormControl(this.PlanValue.planValidity, [Validators.required , Validators.pattern("[0-9]{1,5}")]),
-      _PlanDetails: new FormControl(this.PlanValue.planDetails, [Validators.required]),
-      _PlanOffers : new FormControl(this.PlanValue.planOffers, [Validators.required])
+    this.EditPostPaidForm = new UntypedFormGroup({
+      _PlanName: new UntypedFormControl(this.PlanValue.planName, [Validators.required]),
+      _PlanPrice: new UntypedFormControl(this.PlanValue.planPrice, [Validators.required , Validators.pattern("[0-9]{1,5}")]),
+      _PlanValidity: new UntypedFormControl(this.PlanValue.planValidity, [Validators.required , Validators.pattern("[0-9]{1,5}")]),
+      _PlanDetails: new UntypedFormControl(this.PlanValue.planDetails, [Validators.required]),
+      _PlanOffers : new UntypedFormControl(this.PlanValue.planOffers, [Validators.required])
     });
   }
 

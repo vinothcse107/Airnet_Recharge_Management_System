@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PlanModel } from 'src/app/shared/PlanModel';
 import { RechargeModel } from 'src/app/shared/RechargeModel';
 import { UserService } from 'src/app/services/user.service';
@@ -13,7 +13,7 @@ import { NgToastService } from 'ng-angular-popup'
 })
 export class PopularplansComponent implements OnInit {
 
-      RechargeForm!: FormGroup;
+      RechargeForm!: UntypedFormGroup;
       SetPlanRecharge!: PlanModel;
       user!: string;
       email!: string;
@@ -29,10 +29,10 @@ export class PopularplansComponent implements OnInit {
       public ngOnInit(): void {
             this.GetPlans();
 
-            this.RechargeForm = new FormGroup({
-                  _RechargeType: new FormControl(null, [Validators.required]),
-                  _Mobile: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-                  _Name: new FormControl(null, [Validators.required]),
+            this.RechargeForm = new UntypedFormGroup({
+                  _RechargeType: new UntypedFormControl(null, [Validators.required]),
+                  _Mobile: new UntypedFormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+                  _Name: new UntypedFormControl(null, [Validators.required]),
             });
       }
 

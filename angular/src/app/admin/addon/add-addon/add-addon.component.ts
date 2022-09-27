@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AddonService } from 'src/app/services/addon.service';
 import { AddonsModel } from '../../../shared/AddonModel';
 
@@ -17,14 +17,14 @@ export class AddAddonComponent implements OnInit {
       constructor(private _addonService: AddonService) { }
 
       // Reactive Form Controls Initialization
-      AddAddonForm!: FormGroup;
+      AddAddonForm!: UntypedFormGroup;
       ngOnInit(): void {
-            this.AddAddonForm = new FormGroup({
-                  _AddonName: new FormControl(null, [Validators.required]),
-                  _AddonPrice: new FormControl(null, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
-                  _AddonDetails: new FormControl(null, [Validators.required]),
-                  _AddonId: new FormControl(null, [Validators.required]),
-                  _AddonValidity: new FormControl(null, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
+            this.AddAddonForm = new UntypedFormGroup({
+                  _AddonName: new UntypedFormControl(null, [Validators.required]),
+                  _AddonPrice: new UntypedFormControl(null, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
+                  _AddonDetails: new UntypedFormControl(null, [Validators.required]),
+                  _AddonId: new UntypedFormControl(null, [Validators.required]),
+                  _AddonValidity: new UntypedFormControl(null, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
             });
       }
 

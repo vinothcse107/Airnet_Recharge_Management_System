@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { PrepaidService } from 'src/app/services/prepaid.service';
 import { PlanModel } from '../../../shared/PlanModel';
 
@@ -17,15 +17,15 @@ export class AddPrepaidComponent implements OnInit {
     // *----------------*--------------*-------------
 
     // Reactive Forms Initialization
-    AddPrePaidForm!: FormGroup;
+    AddPrePaidForm!: UntypedFormGroup;
     ngOnInit(): void {
-        this.AddPrePaidForm = new FormGroup({
-            _PlanId: new FormControl(null, [Validators.required]),
-            _PlanName: new FormControl(null, [Validators.required]),
-            _PlanPrice: new FormControl(null, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
-            _PlanValidity: new FormControl(null, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
-            _PlanDetails: new FormControl(null, [Validators.required]),
-            _PlanOffers: new FormControl(null, [Validators.required])
+        this.AddPrePaidForm = new UntypedFormGroup({
+            _PlanId: new UntypedFormControl(null, [Validators.required]),
+            _PlanName: new UntypedFormControl(null, [Validators.required]),
+            _PlanPrice: new UntypedFormControl(null, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
+            _PlanValidity: new UntypedFormControl(null, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
+            _PlanDetails: new UntypedFormControl(null, [Validators.required]),
+            _PlanOffers: new UntypedFormControl(null, [Validators.required])
         });
     }
 

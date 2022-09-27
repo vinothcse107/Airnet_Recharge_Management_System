@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { NgToastService } from 'ng-angular-popup'
 import { UserService } from 'src/app/services/user.service';
@@ -15,11 +15,11 @@ export class LoginComponent implements OnInit {
       constructor(private _loginService: LoginService, private toast: NgToastService, private _userService: UserService) { }
 
       // Reactive Forms Initilization & Validation
-      LoginForm !: FormGroup;
+      LoginForm !: UntypedFormGroup;
       ngOnInit(): void {
-            this.LoginForm = new FormGroup({
-                  'email': new FormControl(null, [Validators.required, Validators.email]),
-                  'password': new FormControl(null, [Validators.required, Validators.pattern("[a-zA-Z0-9_@#$!?></|+*]{8,12}")])
+            this.LoginForm = new UntypedFormGroup({
+                  'email': new UntypedFormControl(null, [Validators.required, Validators.email]),
+                  'password': new UntypedFormControl(null, [Validators.required, Validators.pattern("[a-zA-Z0-9_@#$!?></|+*]{8,12}")])
             })
       }
       /**

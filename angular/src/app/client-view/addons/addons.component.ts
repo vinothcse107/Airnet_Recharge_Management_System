@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AddonsModel } from 'src/app/shared/AddonModel';
 import { RechargeModel } from 'src/app/shared/RechargeModel';
 import { UserModel } from 'src/app/shared/UserModel';
@@ -16,7 +16,7 @@ export class AddonsComponent implements OnInit {
       Addons!: AddonsModel[];
       user!: string;
       email!: string;
-      RechargeForm!: FormGroup;
+      RechargeForm!: UntypedFormGroup;
       UserDetails!: UserModel;
       SetPlanRecharge!: AddonsModel;
       public query: any = '';
@@ -32,9 +32,9 @@ export class AddonsComponent implements OnInit {
             this.GetAddons();
 
             // Reactive Forms Controls
-            this.RechargeForm = new FormGroup({
-                  _Mobile: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-                  _UserName: new FormControl(null, [Validators.required]),
+            this.RechargeForm = new UntypedFormGroup({
+                  _Mobile: new UntypedFormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+                  _UserName: new UntypedFormControl(null, [Validators.required]),
             });
       }
 

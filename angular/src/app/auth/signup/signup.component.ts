@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { UserModel } from 'src/app/shared/UserModel';
 import { NgToastService } from 'ng-angular-popup'
@@ -15,14 +15,14 @@ export class SignupComponent implements OnInit {
   constructor(private _loginService : LoginService, private toast: NgToastService ) { }
 
     // Reactive Forms Initilization & Validation
-    SignupForm!: FormGroup;
+    SignupForm!: UntypedFormGroup;
     ngOnInit(): void {
-        this.SignupForm = new FormGroup({
-            'email': new FormControl(null, [Validators.required, Validators.email]),
-            'username' : new FormControl(null, [Validators.required , Validators.pattern("[a-zA-Z0-9_]{8,12}")]),
-            'mobileNumber': new FormControl(null, [Validators.required , Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-            'password': new FormControl(null, [Validators.required, Validators.pattern("[a-zA-Z0-9_@#$!?></|+*]{8,16}")]),
-            'confirmPass': new FormControl(null, [Validators.required ,Validators.pattern("[a-zA-Z0-9_@#$!?></|+*]{8,16}") ])
+        this.SignupForm = new UntypedFormGroup({
+            'email': new UntypedFormControl(null, [Validators.required, Validators.email]),
+            'username' : new UntypedFormControl(null, [Validators.required , Validators.pattern("[a-zA-Z0-9_]{8,12}")]),
+            'mobileNumber': new UntypedFormControl(null, [Validators.required , Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+            'password': new UntypedFormControl(null, [Validators.required, Validators.pattern("[a-zA-Z0-9_@#$!?></|+*]{8,16}")]),
+            'confirmPass': new UntypedFormControl(null, [Validators.required ,Validators.pattern("[a-zA-Z0-9_@#$!?></|+*]{8,16}") ])
         })
     }
 

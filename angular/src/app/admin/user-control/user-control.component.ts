@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { UserModel } from 'src/app/shared/UserModel';
 import { UserControlService } from '../../services/user-control.service';
 
@@ -18,15 +18,15 @@ export class UserControlComponent implements OnInit {
     // *----------------*------------*----------------*
 
     // Reactive Forms Initialization
-    EditUserForm !: FormGroup
+    EditUserForm !: UntypedFormGroup
     ngOnInit(): void {
         this.GetUsers();
-        this.EditUserForm = new FormGroup({
-            _Email: new FormControl(null, [Validators.required, Validators.email]),
-            _Password: new FormControl(null, [Validators.required, Validators.pattern("[a-zA-Z0-9_@#$!?></|+*]{8,16}")]),
-            _Username: new FormControl(null, [Validators.required, Validators.pattern("[a-zA-Z0-9_]{5,12}")]),
-            _MobileNumber: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-            _UserRole: new FormControl(null, [Validators.required])
+        this.EditUserForm = new UntypedFormGroup({
+            _Email: new UntypedFormControl(null, [Validators.required, Validators.email]),
+            _Password: new UntypedFormControl(null, [Validators.required, Validators.pattern("[a-zA-Z0-9_@#$!?></|+*]{8,16}")]),
+            _Username: new UntypedFormControl(null, [Validators.required, Validators.pattern("[a-zA-Z0-9_]{5,12}")]),
+            _MobileNumber: new UntypedFormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+            _UserRole: new UntypedFormControl(null, [Validators.required])
         });
 
     }
